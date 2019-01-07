@@ -1,0 +1,16 @@
+{
+  "name": "blog-express",
+  "version": "1.0.0",
+  "description": "Blog Demo with Express.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "test app"
+  },
+  "author": "Tochukwu",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.4",
+    "pug": "^2.0.0-rc.4",
+    "stylus": "^0.54.5"
+  }
+}
