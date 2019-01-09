@@ -1,4 +1,5 @@
-### Commands  
+# Commands  
+## Chapter 1: Setting up Node.js and Other Essetials  
 #### Run node debugger  
 After placing the `debug` statement on different lines on the sccript, run the command:  
 `$ node inspect hello-debug.js`  
@@ -10,6 +11,7 @@ Use the following command while in the debugger interative shell:
 `$ node --inspect-brk hello-debug.js`  
 #### Installing mongoDB driver  
 `$ npm install mongodb --save`  
+## Chappter 2: Using Express to Create Node.js App  
 #### Installing Express.JS
 This will intstall express locally to the project.  
 `$ npm init -y`  
@@ -45,6 +47,30 @@ Here we create an express app manually without using the express generator.
 `$ node start`  
 * If you choose index.js as your entry point, you can start you server using  
 `$ node `  
+## Chapter 3: TDD and BDD for Node.js with Mocha
+#### Install Mocha 
+Installing mocha gloablly  
+`$ sudo npm install -g mocha`    
+Installing a specific version of mocha to a specific project:    
+`$ npm install mocha@4.0.1 --save-dev`
+To run tests using the globally installed mocha test runner:
+`$ mocha tests`  
+This will run all tests in the 'tests'  directory.  
+To run tests using the locally installed mocha, in the root directory of the project, do:    
+`$ node_modules/.bin/mocha tests`  
+#### Installing the Chai Assertion Library
+`$ npm install chai@4.1.2 --save-dev`  
+#### Installing the stand alone Expect.JS Library
+`$ npm install expect.js --save-exact`  
+#### Run the test using make.
+Define the target entry and commands in a 'makefile', after that do:  
+`$ make `  
+See [Using Make and writing Makefiles](https://www.cs.swarthmore.edu/~newhall/unixhelp/howto_makefiles.html)  
+Check if the make file is properly tabbed by doing:  
+`$ cat -e -t -v makefile`  
+This will show all the tabs as ^I and all the line ending as $. Each command in the make file must start with a tab and end with end line.  
+Use regular text editor to write your makefile.  
+
 
 
 
