@@ -1,0 +1,23 @@
+doctype html
+html
+ head
+  title Mixin
+ body
+  h2 Using mixin
+  //Define row mixin
+  mixin row(record)
+   tr
+    each data, index in record
+     td= index
+     td= data
+  //Define table mixin which uses row minix
+  mixin table(records)
+   table(border='1')
+    each record, index in records
+     +row(record)
+  //Define some data
+  - const frontEnd = [{name: 'Vue'}, {name: 'AngularJS'}, {name: 'React'}, {name: 'Angular'}];
+  - const backEnd = [{name: 'Express'}, {name: 'Hapi'}, {name: 'Derby'}]
+  //Call the mixin like a function
+  +table(frontEnd)
+  +table(backEnd)
