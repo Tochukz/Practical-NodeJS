@@ -70,6 +70,17 @@ Check if the make file is properly tabbed by doing:
 `$ cat -e -t -v makefile`  
 This will show all the tabs as ^I and all the line ending as $. Each command in the make file must start with a tab and end with end line.  
 Use regular text editor to write your makefile.  
+## Chapter 4
+#### For the pug-example demo:
+Create package.json file  
+`$ npm init -y `  
+Install express  
+`$ npm install express --save`  
+Install pug  
+`$ npm install pug --save`  
+Installing nodemon  
+`npm install --global nodemon`  
+
 
 
 
