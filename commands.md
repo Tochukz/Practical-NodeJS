@@ -79,7 +79,11 @@ Install express
 Install pug  
 `$ npm install pug --save`  
 Installing nodemon  
-`npm install --global nodemon`  
+`$ npm install --global nodemon`  
+Installation of express with handlebars enabled  
+`$ express --view hbs handlebars-examples`  
+Installation of handlebars for standalone  
+`$ npm installl handlebars --save`  
 
 
 
