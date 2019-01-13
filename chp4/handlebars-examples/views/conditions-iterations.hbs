@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Conditionals and Iterations</title>
+</head>
+<body>
+    <div>
+        {{#if user.admin}}
+            <button>Lunch Space Craft</button>
+        {{else}}
+            <button>Login</button>
+        {{/if}}
+    </div>
+    <!---The inverse of if statement is the unless statement-->
+    <div>
+        {{#unless user.admin}}
+            <button>Login</button>
+        {{else}}
+            <button>Lunch Space Craft</button>
+        {{/unless}}
+    </div> 
+    <div>
+        {{#each langs}}
+            <p>{{@index}}. {{this}}</p> 
+        {{/each}}
+    </div>
+    <div>
+        <ul>
+            {{#each letters}}
+              <li>
+                  <span>{{@index}}</span>
+                  <span>unescapes: {{{this}}}</span>
+                  <span>escaped: {{this}}</span>
+              </li>
+            {{/each}}
+        </ul>
+    </div>
+</body>
+</html>
