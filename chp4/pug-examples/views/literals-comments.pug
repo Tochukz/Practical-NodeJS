@@ -1,0 +1,21 @@
+doctype html
+html
+ head
+  title Literals
+ body
+  div#content
+   p.lead.center
+    | webapplog: where code lives
+    #side-bar.pull-right
+    span.content.span4
+     a(href="/contect") contact us
+   //This will produce a HTML comment
+   p HTML comment above
+   //- This comment will not be rendered in HTML
+   //Interpolation
+   - var title = "React Quaickly: Painless web appps with React, JXS, Reduc, and GraphQL"
+   p Read the #{title} in PDF, MOBI and EPUB
+   //The interpolation is processed at the template compilation. Therefore, don’t use interpolation in executable JavaScript, that is, JS with - . 
+   //For the - JS, use standard ES6 string interpolation with ${name} .
+   - var sentence = `Read the ${title} in PDF, MOBI and EPUB`
+   p= sentence
