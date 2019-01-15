@@ -83,7 +83,17 @@ Installing nodemon
 Installation of express with handlebars enabled  
 `$ express --view hbs handlebars-examples`  
 Installation of handlebars for standalone  
-`$ npm installl handlebars --save`  
+`$ npm install handlebars --save`  
+Instalation of mongodb-clients  
+`$ sudo apt install mongodb-clients`  
+This should install both mongoDB server and client  
+`$ sudo apt install -y mongodb`  
+Start the mongodb server  
+`$ sudo service mongodb start`  
+Check the status, stop and restart  
+`$ sudo service mongodb status`  
+`$ sudo service mongodb stop`  
+`$ sudo service mongodb restart`  
 
 
 
