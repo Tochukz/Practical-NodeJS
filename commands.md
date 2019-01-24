@@ -85,15 +85,38 @@ Installation of express with handlebars enabled
 Installation of handlebars for standalone  
 `$ npm install handlebars --save`  
 Instalation of mongodb-clients  
+## Chapter 5
 `$ sudo apt install mongodb-clients`  
 This should install both mongoDB server and client  
 `$ sudo apt install -y mongodb`  
-Start the mongodb server  
+Start the mongoDB server  
 `$ sudo service mongodb start`  
-Check the status, stop and restart  
+Check the status, stop and restart  mongoDB server
 `$ sudo service mongodb status`  
 `$ sudo service mongodb stop`  
 `$ sudo service mongodb restart`  
+Starting the mongoDB client 
+`$ mongo`
+Installing nodeJS native driver for mongoDB  
+`$ npm install mongodb@2.2.33 -SE`  
+Installing mongoskin mongoDB driver for nodeJS  
+`$ npm i mongoskin@2.1.0 -SE`  
+Writing a simple bash script to seed the data base with data from a json file using the mongoimport module.    
+1. Create the sh file db/seed.sh
+2. Write th following as the first line of the script  
+`#!/bin/bash`   
+3. Write your commands one line after another
+```
+mongoimport --db blog --collection users --file ./users.json --jsonArray
+mongoimport --db blog --collection articles --file ./articles.json --jsonArray
+```
+4.  After saving the script with .sh extention, make it executable
+`$ chmod + seed.sh` 
+5. Run the script
+`$ ./db/seed.sh`
+
+
+
 
 
 
