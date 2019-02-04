@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-const handlebars = require('handlebars');
+//const handlebars = require('handlebars');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -60,18 +60,18 @@ app.get('/with', (req, res, next) => {
 
 app.get('/helpers', (req, res, next) => {
   /**Registering a custom handlebars helper */
-  handlebars.registerHelper('table', (data) => {
-    let str = '<table border="1">';
-    for (let i = 0; i < data.length; i++) {
-      str += '<tr>';
-      for (let cell in data[i]) {
-        str += '<td>'+ data[i][cell]+'</td>';
-      }
-      str += '</tr>'; 
-    }
-    str += '</table>'; 
-    return new handlebars.SafeString(str);
-  });
+  // handlebars.registerHelper('table', (data) => {
+  //   let str = '<table border="1">';
+  //   for (let i = 0; i < data.length; i++) {
+  //     str += '<tr>';
+  //     for (let cell in data[i]) {
+  //       str += '<td>'+ data[i][cell]+'</td>';
+  //     }
+  //     str += '</tr>'; 
+  //   }
+  //   str += '</table>'; 
+  //   return new handlebars.SafeString(str);
+  // });
 
   const data = [
     {name: 'express', url: 'http://expressjs.com/'},
