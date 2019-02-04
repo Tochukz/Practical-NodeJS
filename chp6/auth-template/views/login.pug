@@ -1,0 +1,23 @@
+doctype html
+html
+ head
+  title Authentication
+  link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css")
+ body
+  .container
+   .row
+    .col-sm-12
+     .col-sm-12
+      h3 Login 
+     .col-sm-4
+      .col-sm-12.alert-danger
+       if(errorMessage)
+        p= errorMessage
+      form(method="post", action="/login")
+       .form-group
+        label Username
+        input.form-control(name="username", type="text")
+       .form-group 
+        lable Password
+        input.form-control(name="password", type="password")
+       button(type="submit") Send
