@@ -13,6 +13,3 @@ module.exports.logout = (req, res, next) => {
 module.exports.authenticate = (req, res, next) => {
     res.redirect('/admin');
 };
-
-  
-
