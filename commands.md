@@ -114,6 +114,17 @@ mongoimport --db blog --collection articles --file ./articles.json --jsonArray
 `$ chmod + seed.sh` 
 5. Run the script
 `$ ./db/seed.sh`
+## Chapter 6
+Implementing JSON Web Token (JWT) authentication  
+Installing jsonwebtoken package  
+`$ yarn add jsonwebtoken`  
+Installing bcrypt package  
+`$ npm install --save bcrypt`  
+Installing all packges defined in packge.json using yarn  
+`$ yarn install`  
+Implementing session Authentication  
+
+
 
 
 
