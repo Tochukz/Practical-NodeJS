@@ -11,6 +11,7 @@ Use the following command while in the debugger interative shell:
 `$ node --inspect-brk hello-debug.js`  
 #### Installing mongoDB driver  
 `$ npm install mongodb --save`  
+
 ## Chappter 2: Using Express to Create Node.js App  
 #### Installing Express.JS
 This will intstall express locally to the project.  
@@ -47,8 +48,9 @@ Here we create an express app manually without using the express generator.
 `$ node start`  
 * If you choose index.js as your entry point, you can start you server using  
 `$ node `  
+
 ## Chapter 3: TDD and BDD for Node.js with Mocha
-#### Install Mocha 
+#### Install Mocha
 Installing mocha gloablly  
 `$ sudo npm install -g mocha`    
 Installing a specific version of mocha to a specific project:    
@@ -70,7 +72,8 @@ Check if the make file is properly tabbed by doing:
 `$ cat -e -t -v makefile`  
 This will show all the tabs as ^I and all the line ending as $. Each command in the make file must start with a tab and end with end line.  
 Use regular text editor to write your makefile.  
-## Chapter 4
+
+## Chapter 4: Template Engines: Pug and Handlebars
 #### For the pug-example demo:
 Create package.json file  
 `$ npm init -y `  
@@ -83,38 +86,91 @@ Installing nodemon
 Installation of express with handlebars enabled  
 `$ express --view hbs handlebars-examples`  
 Installation of handlebars for standalone  
-`$ npm install handlebars --save`  
+`$ npm install handlebars --save`    
+
+## Chapter 5: Persistence with MongoDB and Mongoskin
 Instalation of mongodb-clients  
-## Chapter 5
 `$ sudo apt install mongodb-clients`  
 This should install both mongoDB server and client  
 `$ sudo apt install -y mongodb`  
 Start the mongoDB server  
 `$ sudo service mongodb start`  
-Check the status, stop and restart  mongoDB server
+Check the status, stop and restart  mongoDB server  
 `$ sudo service mongodb status`  
 `$ sudo service mongodb stop`  
 `$ sudo service mongodb restart`  
-Starting the mongoDB client 
-`$ mongo`
+Starting the mongoDB client  
+`$ mongo`  
 Installing nodeJS native driver for mongoDB  
 `$ npm install mongodb@2.2.33 -SE`  
 Installing mongoskin mongoDB driver for nodeJS  
 `$ npm i mongoskin@2.1.0 -SE`  
-Writing a simple bash script to seed the data base with data from a json file using the mongoimport module.    
+#### Basic MongoDB operations using the mongo console.  
+First start the mongodb service  
+`$ sudo service mongodb start`  
+Next, start the MongoDB client  
+`$ mongo`
+##### Operations
+Show all exiting databases  
+`$ show databases`  or  
+`$ show dbs`  
+Select a database to work with  
+`$ use blog`  
+Create a collection   
+`db.createCollection("users")`  
+Show all collections in the selected database (Collections in NoSQL DBs is  synonymous  to tables in RDBMS)  
+`$ show collections`  
+Add documnets to a collection named 'people'.This will create the collection automatically of it does not exist.
+```
+$ db.people.insert({name: 'Chichi', city: 'Lagos'});
+$ db.people.insert({name: 'Chukwudi', city: 'Kaduna'});  
+$ db.people.insertOne({name: 'Clayton', city: 'Cape Town'})
+```
+You may also use the save method  
+`$ db.people.save({name: 'Chucks', city: 'Cape Town'});`  
+MondoDB will create the 'people' collection if it does not exists  
+
+Find the total number of documents in the collection  
+`$ db.people.count()`  
+
+Query the people collection  (Will display all documents  where city == 'Lagos'. It is case sensitive)  
+`$ db.people.find({city: 'Lagos'})`  
+To get  a single document instead of a set of documents  
+`$ db.people.findOne({city: 'Lagos'})`  
+ Show all documents in the 'people' collection  
+ `$ db.people.find()`  
+Delete document(s) matching a query parameter (Deletes all documents where city == 'Lagos')   
+`$ db.people.remove({city: 'Lagos'})`
+Update a document in a collection  
+```
+$ db.people.find()                               // Show all the current documents in the collection
+$ var chichi = db.people.findOne(name: 'Chichi)  // Assign the document to be updated to a variable  
+$ printjson(chichi)                              // Visualize the document object
+$ chichi.city = 'Texas';                         // Update the document object property
+$ printjson(chichi)                              // Verify the update
+$ db.people.save(chichi)                         // Save the updated document to the collection  
+$ db.people.find()                               // See the updated document in the collection
+```
+The save() method acts like an upsert(update or insert)- If you  have MongoDB _id, then the document will be updated with the new properties passed to save() else it will insert a new document and create a new document ID.   
+#### Writing a simple bash script to seed the database with data from a json file using the mongoimport module.    
 1. Create the sh file db/seed.sh
-2. Write th following as the first line of the script  
+2. Write the following in the first line of the script file  
 `#!/bin/bash`   
 3. Write your commands one line after another
 ```
 mongoimport --db blog --collection users --file ./users.json --jsonArray
 mongoimport --db blog --collection articles --file ./articles.json --jsonArray
 ```
-4.  After saving the script with .sh extention, make it executable
-`$ chmod + seed.sh` 
+4.  After saving the script with .sh extention, make it executable  
+`$ chmod u+x seed.sh`
 5. Run the script
-`$ ./db/seed.sh`
-## Chapter 6
+`$ ./db/seed.sh`  
+The mongoimport module can work with json, CSV OR TSV
+
+Usefull links  
+[MongoDB interactive shell](https://docs.mongodb.com/manual/mongo/)
+
+## Chapter 6: Security and Auth in Node.js
 Implementing JSON Web Token (JWT) authentication  
 Installing jsonwebtoken package  
 `$ yarn add jsonwebtoken`  
@@ -123,16 +179,5 @@ Installing bcrypt package
 Installing all packges defined in packge.json using yarn  
 `$ yarn install`  
 Implementing session Authentication  
-
-
-
-
-
-
-
-
-
-
-
-
-
+....  To write later ...  
+Adding AUthentication Blog Express  
