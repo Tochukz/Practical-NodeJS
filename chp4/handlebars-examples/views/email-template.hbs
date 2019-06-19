@@ -1,0 +1,174 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="ie=edge" http-equiv="X-UA-Compatible">
+        <title>Confirmation Email</title>
+        <style>
+            /* 
+             *  This style is meant to show you what the inline styles are doing. 
+             *  You may want to update this style when the internal style is updated.
+             */
+            body{             
+                width: 100%;
+                margin: 0;
+                padding:0;  
+            }
+            h2 {
+                color: #0977b9;
+            }  
+            div {
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                text-align: center;
+                width: 96vw;
+                max-width: 760px;
+                margin: 1em auto;    
+                background: #fff;                         
+            } 
+            table {
+                border: solid #f2f3f2 1.5px;
+                border-bottom: none;
+                width: 100%;
+            } 
+            div table.total {
+                border-bottom: solid #f2f3f2 1.5px;
+                background-color: #f1f7fb;
+                
+            }       
+            td {
+                width: 50%;
+                height: 2em;
+                padding: 1em;
+                color: #484848;
+                text-align: left;
+            }
+            tr td:nth-child(2) {
+                text-align: right
+            }   
+            td h2 {
+                color: #484848;
+            }
+            td h2.soft {
+                font-weight: normal;
+            }
+            p {
+                background-color: #0977b9;
+                text-align: center;
+                color: #fff;
+                line-height: 3em;
+                font-weight: bold;
+                font-size: 1.2em;
+            }  
+        </style>
+{{ setVariable 'body' 'width: 100%; 
+                       margin: 0; 
+                       padding:0;'}}
+{{ setVariable 'div' 'font-family: Verdana, Geneva, Tahoma, sans-serif; 
+                      text-align: center; 
+                      width: 96vw; 
+                      max-width: 760px; 
+                      margin: 1em auto;  
+                      background: #fff;'}}
+{{ setVariable 'h2' 'color: #0977b9;'}}
+{{ setVariable 'table' 'border: solid #f2f3f2 1.5px;
+                        border-bottom: none;
+                        width: 100%;'}}
+{{ setVariable 'tableTotal' 'border: solid #f2f3f2 1.5px;
+                             border-bottom: none;
+                             width: 100%;
+                             border-bottom: solid #f2f3f2 1.5px;
+                             background-color: #f1f7fb;'}}
+{{ setVariable 'tdOdd' 'width: 50%;
+                        height: 2em;
+                        padding: 1em;
+                        color: #484848;
+                        text-align: left;'}}
+{{ setVariable 'tdEven' 'width: 50%;
+                         height: 2em;
+                         padding: 1em;
+                         color: #484848;
+                         text-align: right;'}}
+{{ setVariable 'tdH2' ' color: #484848;'}}
+{{ setVariable 'tdH2Soft' 'font-weight: normal;'}}
+{{ setVariable 'p' 'background-color: #0977b9;
+                    text-align: center;
+                    color: #fff;
+                    line-height: 3em;
+                    font-weight: bold;
+                    font-size: 1.2em;'}}
+        
+    </head>
+    <body style="{{ body }}">
+        <div style="{{ div }}">
+            <h2 style="{{ h2 }}">Thanks! Your reservation is confirmed</h2>
+            <div style="{{ div }}"><img alt="Flight sight" src="http://flightsite.co.za/images/flightsite_pnp_logo.svg" width="200"/></div>
+            <table style="{{ table }}">
+                <tr>
+                    <td style="{{ tdOdd }}">
+                        <strong>Booking Number</strong>
+                    </td>
+                    <td style="{{ tdEven }}">{{ bookingNumber }}</td>
+                </tr>
+                <tr>
+                    <td style="{{ tdOdd }}">
+                        <strong>Email</strong>
+                    </td>
+                    <td style="{{ tdEven }}">{{ email }}</td>
+                </tr>
+            </table>
+            <table style="{{ table }}">
+                <tr>
+                    <td style="{{ tdOdd }}">
+                        <strong>Your reservation</strong>
+                    </td>
+                    <td style="{{ tdEven }}">{{ yourReservation }}</td>
+                </tr>
+                <tr>
+                    <td style="{{ tdOdd }}">
+                        <strong>Check-In</strong>
+                    </td>
+                    <td style="{{ tdEven }}">{{ checkIn }}</td>
+                </tr>
+                <tr>
+                    <td style="{{ tdOdd }}">
+                        <strong>Check-Out</strong>
+                    </td>
+                    <td style="{{ tdEven }}">{{ checkOut }}</td>
+                </tr>
+            </table>
+            <table class="total" style="{{ tableTotal }}">
+                <tr>
+                    <td style="{{ tdOdd }}">
+                        <strong>Superior Double Room</strong>
+                    </td>
+                    <td style="{{ tdEven }}">{{ superiorDoubleRoom }}</td>
+                </tr>
+                <tr>
+                    <td style="{{ tdOdd }}">
+                        <strong>VAT (14%)</strong>
+                    </td>
+                    <td style="{{ tdEven }}">{{ vat }}</td>
+                </tr>
+                <tr>
+                    <td style="{{ tdOdd }}">
+                        <h2 style="{{ tdH2 }}">Total Price</h2>
+                    </td>
+                    <td style="{{ tdEven }}">
+                        <h2 class="soft" style="{{ tdH2Soft }}">{{ totalPrice }}</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="{{ tdOdd }}">Please note: Additonal suppliments (E.g. extra bed) are not added to this total.</td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="{{ tdOdd }}">
+                        The total price shown is the amont you will pay to the property, Flightsite.co.za does not charge any reservation, administration or other fees.
+                    </td>
+                </tr>
+            </table>
+            <div>
+                <p style="{{ p }}">You can easily change or cancel</p>
+            </div>
+        </div>
+    </body>
+</html>

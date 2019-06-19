@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-//const handlebars = require('handlebars');
+const hbs = require('hbs');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -60,18 +60,18 @@ app.get('/with', (req, res, next) => {
 
 app.get('/helpers', (req, res, next) => {
   /**Registering a custom handlebars helper */
-  // handlebars.registerHelper('table', (data) => {
-  //   let str = '<table border="1">';
-  //   for (let i = 0; i < data.length; i++) {
-  //     str += '<tr>';
-  //     for (let cell in data[i]) {
-  //       str += '<td>'+ data[i][cell]+'</td>';
-  //     }
-  //     str += '</tr>'; 
-  //   }
-  //   str += '</table>'; 
-  //   return new handlebars.SafeString(str);
-  // });
+  hbs.registerHelper('table', (data) => {
+    let str = '<table border="1">';
+    for (let i = 0; i < data.length; i++) {
+      str += '<tr>';
+      for (let cell in data[i]) {
+        str += '<td>'+ data[i][cell]+'</td>';
+      }
+      str += '</tr>'; 
+    }
+    str += '</table>'; 
+    return new hbs.SafeString(str);
+  });
 
   const data = [
     {name: 'express', url: 'http://expressjs.com/'},
@@ -80,6 +80,26 @@ app.get('/helpers', (req, res, next) => {
     {name: 'derby', url: 'http://derbyjs.com/'}
   ];
   res.render('helpers', {data: data});
+});
+
+app.get('/email-template', (req, res, next) => {
+  //res.render('email-template')
+  const reservation = {
+    bookingNumber: 8947588904,
+    email: 'john.turkey@gmail.com',
+    yourReservation: '1 Night, 1 Room',
+    checkIn: '11 December 2018',
+    checkOut: '30 December 2018',
+    superiorDoubleRoom: 'R1,020.84',
+    vat: 'R120',
+    totalPrice: 'R1,140.84'
+  }
+  
+  hbs.registerHelper('setVariable', (variableName, variableValue, options) => {
+    options.data.root[variableName] = variableValue;
+  });
+
+  res.render('email-template', reservation);
 });
 
 // catch 404 and forward to error handler
