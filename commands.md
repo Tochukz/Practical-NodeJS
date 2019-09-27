@@ -1,4 +1,5 @@
-# Commands  
+# Practical NodeJS
+
 ## Chapter 1: Setting up Node.js and Other Essetials  
 #### Run node debugger  
 After placing the `debug` statement on different lines on the sccript, run the command:  
@@ -93,6 +94,8 @@ Installation of handlebars for standalone
 `$ sudo apt install mongodb-clients`  
 **This should install both mongoDB server and client**  
 `$ sudo apt install -y mongodb`  
+**Check mongoDB version**  
+`$ mongod --version`  
 **Start the mongoDB server**  
 `$ sudo service mongodb start`  
 **Check the status, stop and restart  mongoDB server**  
@@ -152,7 +155,8 @@ $ printjson(chichi)                              // Verify the update
 $ db.people.save(chichi)                         // Save the updated document to the collection  
 $ db.people.find()                               // See the updated document in the collection
 ```
-The save() method acts like an upsert(update or insert)- If you  have MongoDB _id, then the document will be updated with the new properties passed to save() else it will insert a new document and create a new document ID.   
+The save() method acts like an upsert(update or insert)- If you  have MongoDB `_id`, then the document will be updated with the new properties passed to save() else it will insert a new document and create a new document ID.  
+ 
 #### Writing a simple bash script to seed the database with data from a json file using the mongoimport module.    
 1. Create the sh file db/seed.sh
 2. Write the following in the first line of the script file  
