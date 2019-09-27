@@ -20,10 +20,10 @@
         {{else}}
             <button>Lunch Space Craft</button>
         {{/unless}}
-    </div> 
+    </div>
     <div>
         {{#each langs}}
-            <p>{{@index}}. {{this}}</p> 
+            <p>{{@index}}. {{this}}</p>
         {{/each}}
     </div>
     <div>
@@ -36,6 +36,22 @@
               </li>
             {{/each}}
         </ul>
+    </div>
+
+    <div>
+      <table border="1">
+         <tr>
+            <th>Name</th>
+            <th>City</th>
+        </tr>
+        {{#each people}}
+          <tr>
+            <tr>{{ this.name }}</td>
+            <td>{{ this.city }}</td>
+          </tr>
+        {{/each}}
+      </table>
+
     </div>
 </body>
 </html>

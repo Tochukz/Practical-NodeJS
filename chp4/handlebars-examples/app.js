@@ -36,7 +36,21 @@ app.get('/conditions-iterations', (req, res, next) => {
   const data = {
     user: {admin: admin},
     langs: ['PHP', 'JavaScript', 'C#', 'Dart', 'Python'],
-    letters: ['<a>', '<b>', '<c>']
+    letters: ['<a>', '<b>', '<c>'],
+    people: [
+      {
+        name: 'Tochukwu',
+        city: 'Cape Town'
+      },
+      {
+        name: 'Chichi',
+        city: 'Lagos'
+      },
+      {
+        name: 'Chukwudi',
+        city: 'Kaduna'
+      }
+    ]
   };
   res.render('conditions-iterations', data);
 });
@@ -67,9 +81,9 @@ app.get('/helpers', (req, res, next) => {
       for (let cell in data[i]) {
         str += '<td>'+ data[i][cell]+'</td>';
       }
-      str += '</tr>'; 
+      str += '</tr>';
     }
-    str += '</table>'; 
+    str += '</table>';
     return new hbs.SafeString(str);
   });
 
@@ -94,7 +108,7 @@ app.get('/email-template', (req, res, next) => {
     vat: 'R120',
     totalPrice: 'R1,140.84'
   }
-  
+
   hbs.registerHelper('setVariable', (variableName, variableValue, options) => {
     options.data.root[variableName] = variableValue;
   });
@@ -120,4 +134,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+//module.exports = app;
+const port = 5000;
+app.listen(port, () => console.log(`server running on port ${port}`))
