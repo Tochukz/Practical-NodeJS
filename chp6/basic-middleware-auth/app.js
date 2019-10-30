@@ -10,7 +10,7 @@ const auth = require('./auth');
 /**Adding a decorator */
 app.use((req, res, next) => {
    req.error = false;
-   return next();    
+   return next();
 });
 
 /**Defining middleware */
@@ -25,6 +25,7 @@ app.set('view engine', 'pug');
 app.get('/login', (req, res, next) => {
     res.render('login', {message: req.messsage});
 });
+/* using auth on a single route */
 app.post('/login', auth.auth, (req, res, next) => {
    if(req.error){
        res.render('login', {errorMessage: req.errorMessage});
