@@ -1,5 +1,5 @@
 # Practical NodeJS
-
+[Source Code](https://github.com/azat-co/practicalnode)
 ## Chapter 1: Setting up Node.js and Other Essetials  
 #### Run node debugger  
 After placing the `debug` statement on different lines on the sccript, run the command:  
@@ -156,7 +156,7 @@ $ db.people.save(chichi)                         // Save the updated document to
 $ db.people.find()                               // See the updated document in the collection
 ```
 The save() method acts like an upsert(update or insert)- If you  have MongoDB `_id`, then the document will be updated with the new properties passed to save() else it will insert a new document and create a new document ID.  
- 
+
 #### Writing a simple bash script to seed the database with data from a json file using the mongoimport module.    
 1. Create the sh file db/seed.sh
 2. Write the following in the first line of the script file  
@@ -176,13 +176,17 @@ Usefull links
 [MongoDB interactive shell](https://docs.mongodb.com/manual/mongo/)
 
 ## Chapter 6: Security and Auth in Node.js
+#### JSON Web Token (JWT) Authentication  
+Developers use JSON Web Tokens(JWT) to encrypt data which is then stored on the client.  
+JWTs have all the information unlike regular tokens(API keys or OAuth access tokens), which are more like passwords.  JWT is less secure then web sessions because encryption can be broken given enough time and processing power.
+The JWT has three parts: header, payload and signature. The encyption method may vary: HS256, RS512, ES384 and so on.
+
 Implementing JSON Web Token (JWT) authentication  
 Installing jsonwebtoken package  
 `$ yarn add jsonwebtoken`  
 Installing bcrypt package  
-`$ npm install --save bcrypt`  
-Installing all packges defined in packge.json using yarn  
-`$ yarn install`  
+`$ npm install --save bcrypt`    
+
 Implementing session Authentication  
 ....  To write later ...  
 Adding AUthentication Blog Express  
