@@ -15,9 +15,10 @@ After placing the `debug` statement on different lines on the sccript, run the c
 
 ## Chappter 2: Using Express to Create Node.js App  
 #### Installing Express.JS
-This will intstall express locally to the project.  
+This will install express locally to the project.  
 `$ npm init -y`  
 `$ npm install express@4.15.4 --save --exact`  
+
 #### Creating an express app   
 **Here we use the express CLI to create an express app with it's skeleton/scaffolding**  
 * Install the Express.js Generator. This will give us the express CLI   
@@ -33,7 +34,8 @@ This will intstall express locally to the project.
 * Run the app:  
 `$ DEBUG=express-app:* npm start`  
 * Open up your browser and enter `http://localhost:3000/` in the address bar.  
-#### Creating epxress app manually  
+
+#### Creating express app manually  
 Here we create an express app manually without using the express generator.  
 * Create the package.json config file  
 `$ npm init`  
@@ -61,10 +63,13 @@ To run tests using the globally installed mocha test runner:
 This will run all tests in the 'tests'  directory.  
 To run tests using the locally installed mocha, in the root directory of the project, do:    
 `$ node_modules/.bin/mocha tests`  
+
 #### Installing the Chai Assertion Library
 `$ npm install chai@4.1.2 --save-dev`  
+
 #### Installing the stand alone Expect.JS Library
 `$ npm install expect.js --save-exact`  
+
 #### Run the test using make.
 Define the target entry and commands in a 'makefile', after that do:  
 `$ make `  
@@ -175,7 +180,7 @@ The mongoimport module can work with json, CSV OR TSV
 Usefull links  
 [MongoDB interactive shell](https://docs.mongodb.com/manual/mongo/)
 
-## Chapter 6: Security and Auth in Node.js
+## Chapter 6: Security and Auth in Node.js  
 #### JSON Web Token (JWT) Authentication  
 Developers use JSON Web Tokens(JWT) to encrypt data which is then stored on the client.  
 JWTs have all the information unlike regular tokens(API keys or OAuth access tokens), which are more like passwords.  JWT is less secure then web sessions because encryption can be broken given enough time and processing power.
@@ -190,3 +195,58 @@ Installing bcrypt package
 Implementing session Authentication  
 ....  To write later ...  
 Adding AUthentication Blog Express  
+
+
+## Chapter 9: Real-Time Apps with WebSocket, Socket.IO, and DerbyJS  
+[About HTML5 WebSocket](http://www.websocket.org/aboutwebsocket.html).  
+Installing the websocket module  
+`$ npm install ws@3.3.0 -SE`  
+Learn more about the `ws` at [npm](https://www.npmjs.com/package/ws) and  [github](https://github.com/websockets/ws)
+
+Setup an express scaffolded application  
+`$ express socket-app --view=pub`  
+`cd socket-app && npm install`  
+
+
+Websocket connections can use the standard ports: 80 for a HTTP and 443 for HTTPS  
+
+### Redis
+[Redis Quick Start](http://redis.io/topics/quickstart)   
+[How to Install Redis on Windows 10](https://www.youtube.com/watch?v=188Fy-oCw4w)  
+
+__Using the source files to install redis__   
+* Go to [github.com/microsoftarchive/redis/releases](https://github.com/microsoftarchive/redis/releases)   
+* Navigate to the latest releases  
+* Download the `zip` file  
+* Create a "redis" directory in your system's `c` drive  
+* Unzip the downloaded file inside the created "redis" directory  
+* Copy the location path of the `redis-server` file  
+* Add the path as environment variable to your system  
+* Open up a command interface and start the server `$ redis-server`  
+* Open up another command interface and start the client `$ redis-cli`  
+* On the `redis-cli` prompt enter the command: `ping`, and should get a `PONG` response  
+
+__Using the MSI installer to install redis__  
+* Go to [github.com/microsoftarchive/redis/releases/](https://github.com/microsoftarchive/redis/releases)  
+* Navigate to the latest releases  
+* Download the `msi` installer and following the wizard  
+* Make sure the check the 'add to path' check box when you see it  
+* After successful installation the server will be started automatically    
+* open a command interface and do `$ redis-cli`  
+* On the `redis-cli` prompt enter the command: `ping`, and should get a `PONG` response     
+
+Redis runs  on 127.0.0.1:6379 by default.  
+
+__Basic Redis CLI operations__
+Lunch the redis-cli to access the CLI prompt    
+`$ redis-cli`
+
+Setting a key-value pair  
+`redis 127.0.0.6379> set name Chucks`  
+
+Reading a value of a key    
+`redis 127.0.0.6379> get name`
+
+### Online collaborative code editor  
+Installing all the require dependencies  
+`$ npm install derby express livedb-mongo racer-browserchannel redis`  
