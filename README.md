@@ -1,8 +1,8 @@
 # Practical NodeJS
-[Source Code](https://github.com/azat-co/practicalnode)
-## Chapter 1: Setting up Node.js and Other Essetials  
+[Source Code](https://github.com/azat-co/practicalnode/tree/master/code)
+## Chapter 1: Setting up Node.js and Other Essentials  
 #### Run node debugger  
-After placing the `debug` statement on different lines on the sccript, run the command:  
+After placing the `debug` statement on different lines on the script, run the command:  
 `$ node inspect hello-debug.js`  
 **Use the following command while in the debugger interative shell:**  
 `cont`, `next`, `step`, `out`, `watch` or `c`, `n`, `s`, `o`.  
@@ -88,11 +88,27 @@ Install express
 Install pug  
 `$ npm install pug --save`  
 Installing nodemon  
-`$ npm install --global nodemon`  
+`$ npm install --global nodemon`
+
+__Express application with handlebars enabled__
 Installation of express with handlebars enabled  
-`$ express --view hbs handlebars-examples`  
+`$ express --view hbs handlebars-examples`   
+
+
+
+__Stand alone handlebars__
 Installation of handlebars for standalone  
 `$ npm install handlebars --save`    
+
+Handlebar.js or `handlebars` is an extension to the Mustache templating language.   
+Handlebars is largely compatible with Mustache templates.  
+`hbs` is Express.js view engine for handlebars.js.  
+
+For precompilation, install handlebars globally  
+`$ npm install -g handlebars`  
+
+[Read Handlebar Article](https://www.sitepoint.com/a-beginners-guide-to-handlebars/)  
+[Handlebars CND](https://cdnjs.com/libraries/handlebars.js/)  
 
 ## Chapter 5: Persistence with MongoDB and Mongoskin
 **Installation of mongodb-clients**    
@@ -186,16 +202,27 @@ Developers use JSON Web Tokens(JWT) to encrypt data which is then stored on the 
 JWTs have all the information unlike regular tokens(API keys or OAuth access tokens), which are more like passwords.  JWT is less secure then web sessions because encryption can be broken given enough time and processing power.
 The JWT has three parts: header, payload and signature. The encyption method may vary: HS256, RS512, ES384 and so on.
 
-Implementing JSON Web Token (JWT) authentication  
+__Implementing JSON Web Token (JWT) authentication__  
 Installing jsonwebtoken package  
 `$ yarn add jsonwebtoken`  
 Installing bcrypt package  
 `$ npm install --save bcrypt`    
 
-Implementing session Authentication  
-....  To write later ...  
-Adding AUthentication Blog Express  
+__Implementing session Authentication__  
+We need two modules to implement session authentication - `cookie-parser` and `express-session`  
+From version 1.5.0 of  `express-session`, it is recommended to use `express-session` by itself without `cookie-parser`.  
 
+Install cookie-parser and express-session     
+`$ npm i cookie-parser express-session -SE`   
+
+NB: The `cookie-parser` and `express-sesion` module is recommended  over the use of `cookie-session`. This is because `cookie-session` stores all information in the cookie, not the server. `express-session` uses secure in-memory or Redis storage - and cookies store only for the session ID.
+
+### OAuth Module
+Find the OAuth module `oauth` on [npm]  (https://www.npmjs.org/package/oauth) and [Github](https://github.com/ciaranj/node-oauth)   
+It is recommended that `node-auth` be used when complex integration is needed or when only certain pieces of OAuth are needed.  
+
+Installing OAuth  
+`$ npm install auth@0.9.15`  
 
 ## Chapter 9: Real-Time Apps with WebSocket, Socket.IO, and DerbyJS  
 [About HTML5 WebSocket](http://www.websocket.org/aboutwebsocket.html).  

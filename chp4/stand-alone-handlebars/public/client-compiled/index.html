@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Client Compiled Handlebars</title>
+</head>
+<body>
+  <!-- In this example Handlebar template is compiled on the client side.
+       This maybe an expensive process and may not be suitable for production.
+  -->
+  <div id="personDiv"></div>
+  <script id="personTemplate" type="text/x-handlebars-template">
+    <div>
+      <h3>Professional</h3>
+      <p><strong>Name:</strong> {{name}}  </p>
+        <p><strong>Job Title:</strong> {{jobTitle}}   </p>
+      <strong>HTML escaped:<strong><br />
+         {{summary}} <br /><br />
+      <strong>HTML NOT escaped:</strong>
+        {{{summary}}}
+
+      {{!-- A handlebar comment --}}
+      <!-- Regular HTML comment {{jobTItle}}-->
+
+      <!-- If Block -->
+      {{#if isArchitech}}
+        <p>{{name}} is a Developer Architech...
+      {{/if}}
+    </div>
+  </script>
+
+  <script src="lib/handlebars.js"></script>
+  <script src="js/compile-in-client.js"></script>
+</body>
+</html>
