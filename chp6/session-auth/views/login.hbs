@@ -1,0 +1,16 @@
+<div class="form-div">
+    <form action="/login"  method="post" onsubmit="return validate(event)" id="login-form">
+        {{#if warning}}
+            <div class="alert alert-error">
+                <p>{{warning}}</p>
+            </div>
+        {{/if}}
+        <div class="form-group">
+            <input type="text" name="username" value="tochukz" placeholder="username" id="username" />
+        </div>
+        <div class="form-group">
+            <input type="password" name="password" value="makiki" placeholder="password" id="password" />
+        </div>
+        <input type="submit" value="Login" class="btn btn-primary" />
+    </form>
+</div>

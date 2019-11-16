@@ -1,0 +1,23 @@
+body {
+    background: lightskyblue;
+    color: navy;
+}
+.form-div {
+    width: 600px; 
+    margin: 0 auto;
+}
+ul {
+    margin-top: 3em;
+    list-style-type: none;
+}
+li {
+    display: inline-block;
+    width: 50px;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: darkgray;
+    text-align: center;
+}
