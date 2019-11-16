@@ -1,5 +1,5 @@
 module.exports.list = (req, res, next) => {
-    res.send('reepond with a resource');
+    res.send('respond with a resource');
 };
 
 module.exports.login = (req, res, next) => {
@@ -18,9 +18,11 @@ module.exports.authenticate = (req, res, next) => {
         (error, user) => {
           if (error) return next(error);
           if (!user) return res.render('login', {error: 'Incorrect email & password combinaion.'});
-          //Authenticating the user an adminitrator
+          // Authenticating the user as an administrator
           req.session.user = user;
           req.session.admin = user.admin;
+          // The values of req.session will persist on future requests from the same client
+          
           res.redirect('/admin');
         });
 };
