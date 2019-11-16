@@ -9,7 +9,7 @@ const mongoskin = require('mongoskin');
 const dbUrl = process.env.MONGOHQ_URL || 'mongodb://@localhost:27017/blog';
 
 const db = mongoskin.db(dbUrl);
-// Expose collctions to request hanlders
+// Expose collections to request hanlders
 const collections = {
     articles: db.collection('articles'),
     users: db.collection('users')
@@ -51,7 +51,7 @@ app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser('3CCC4ACD-6ED1-4844-9217-82131BDCB239'));
 // session() must be preceeded by cookieParser() because session depends on cookies to work properly.
-app.use(session({secret: '2C44774A-D649-4D44-9535-46E296EF984F', resave: true, saveUninitialized: true})); 
+app.use(session({secret: '2C44774A-D649-4D44-9535-46E296EF984F', resave: true, saveUninitialized: true}));
 
 // It is useful to pass request authentication information to the templates.
 /** Authentication middleware */
@@ -63,7 +63,7 @@ app.use((req, res, next) => {
 
 /** Authorization middleware */
 const authorize = (req, res, next) => {
-    if (req.session && req.session.admin) 
+    if (req.session && req.session.admin)
         return next();
     else
       return res.status(401).send();
@@ -85,8 +85,8 @@ app.get('/post', authorize, article.post);
 app.post('/post', authorize, article.postArticle);
 app.get('/articles/:slug', article.show);
 
-/** Defining REST API routes. 
- * They are all protected becasue the addition of the authorize middleware 
+/** Defining REST API routes.
+ * They are all protected becasue the addition of the authorize middleware
  * to the route '/api' applies to all the routes with the prefix '/api'
  */
 app.use('/api', authorize)

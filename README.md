@@ -129,6 +129,7 @@ For precompilation, install handlebars globally
 `$ npm install mongodb@2.2.33 -SE`  
 **Installing mongoskin mongoDB driver for nodeJS**  
 `$ npm i mongoskin@2.1.0 -SE`  
+`mongoskin` 2.x requires `mongodb` 2.x to be installed before it can work properly.
 #### Basic MongoDB operations using the mongo console.  
 **First start the mongodb service**  
 `$ sudo service mongodb start`  
