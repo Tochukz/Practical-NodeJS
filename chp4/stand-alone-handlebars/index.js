@@ -14,7 +14,7 @@ app.listen(port, () => {
    Handlebars can be compiled on the client at runtime
    It can also be compiled on the sevrer at compile time.
 
-   Here the three methods is demostrated
+   Here the three methods are demostrated
    See public/client-compiled for client side compilation method
    See public/server-compiled for server-side compile time compilation method
    See run-build-template for compilation on server-side using node-module.
