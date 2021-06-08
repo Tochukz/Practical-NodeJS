@@ -10,6 +10,8 @@ After placing the `debug` statement on different lines on the script, run the co
 `$ npm install -g node-inspector@0.7.5`  
 #### Running the node-inspector  
 `$ node --inspect-brk hello-debug.js`  
+For older version of Node you may do  
+`$  node --inspect --debug-brk hello-debug.js`
 #### Installing mongoDB driver  
 `$ npm install mongodb --save`  
 
@@ -201,7 +203,8 @@ Usefull links
 #### JSON Web Token (JWT) Authentication  
 Developers use JSON Web Tokens(JWT) to encrypt data which is then stored on the client.  
 JWTs have all the information unlike regular tokens(API keys or OAuth access tokens), which are more like passwords.  JWT is less secure then web sessions because encryption can be broken given enough time and processing power.
-The JWT has three parts: header, payload and signature. The encyption method may vary: HS256, RS512, ES384 and so on.
+The JWT has three parts: header, payload and signature. The encryption method may vary: HS256, RS512, ES384 and so on.
+The stronger the algorithm, the better. RS512 will be good for most of the cases circa 2020.  
 
 __Implementing JSON Web Token (JWT) authentication__  
 Installing jsonwebtoken package  
@@ -258,14 +261,14 @@ __Using the MSI installer to install redis__
 * Go to [github.com/microsoftarchive/redis/releases/](https://github.com/microsoftarchive/redis/releases)  
 * Navigate to the latest releases  
 * Download the `msi` installer and following the wizard  
-* Make sure the check the 'add to path' check box when you see it  
+* Make sure to check the '_add to path_' checkbox when you see it  
 * After successful installation the server will be started automatically    
 * open a command interface and do `$ redis-cli`  
-* On the `redis-cli` prompt enter the command: `ping`, and should get a `PONG` response     
+* On the `redis-cli` prompt enter the command: `ping`, and your should get a `PONG` response     
 
 Redis runs  on 127.0.0.1:6379 by default.  
 
-__Basic Redis CLI operations__
+__Basic Redis CLI operations__  
 Lunch the redis-cli to access the CLI prompt    
 `$ redis-cli`
 
@@ -278,3 +281,27 @@ Reading a value of a key
 ### Online collaborative code editor  
 Installing all the require dependencies  
 `$ npm install derby express livedb-mongo racer-browserchannel redis`  
+
+
+## Chapter 11:
+__Keeping Node.js Apps Alive__
+There are a couple of options to choose from.  
+* [forever](https://github.com/foreversd/forever)
+* [Upstart](http://upstart.ubuntu.com/)
+* [init.d](https://www.unix.com/man-page/opensolaris/4/init.d)  
+
+__Forever__  
+Installing Forever globally:      
+`$ npm install forever -g`     
+Start a Node Server with Forever:       
+`$ forever start server.js`    
+Start Node Server with options for log files:      
+`$ forever start -l forever.log -o output.log -e error.log server.js`  
+Step Node Server process:      
+`$ forever stop server.js`    
+List all Node Servers running on Forever:    
+` forever list`  
+Look up available commands:  
+`$ forever --help`   
+
+__Warning__ The app won’t start on server reboots without extra setup/utilities.
